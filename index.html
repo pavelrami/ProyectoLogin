@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Panel principal del sistema escolar">
+  <title>Sistema Escolar | Inicio</title>
+
+  <!-- Bootstrap 5 como base visual -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar" aria-label="Menú principal">
+      <div class="sidebar-brand">
+        <img src="img/logo.svg" alt="" class="sidebar-logo">
+        <div class="sidebar-brand-copy">
+          <strong>Sistema Escolar</strong>
+          <span>Panel administrativo</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button id="usuariosMenuButton" class="sidebar-link sidebar-parent" type="button" aria-expanded="false" aria-controls="usuariosSubmenu">
+          <span class="sidebar-icon">👥</span>
+          <span class="sidebar-text">Usuarios</span>
+          <span class="sidebar-chevron">⌄</span>
+        </button>
+
+        <div id="usuariosSubmenu" class="sidebar-submenu" hidden>
+          <button id="capturaMenuButton" class="sidebar-sublink active" type="button">
+            <span>Captura</span>
+          </button>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <button id="sidebarToggle" class="icon-button" type="button" aria-label="Abrir o cerrar menú lateral">☰</button>
+
+        <div class="topbar-title">
+          <span class="eyebrow">Panel</span>
+          <strong>Captura</strong>
+        </div>
+
+        <div class="user-menu-wrap">
+          <button id="userMenuButton" class="user-menu-button" type="button" aria-expanded="false" aria-controls="userDropdown">
+            <span class="user-avatar">U</span>
+            <span id="navbarUsuario" class="user-name">Usuario</span>
+            <span aria-hidden="true">⌄</span>
+          </button>
+
+          <div id="userDropdown" class="user-dropdown" hidden>
+            <button id="logoutButton" class="dropdown-action" type="button">Salir del sistema</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <section class="welcome-card">
+          <div>
+            <p class="eyebrow">Bienvenido</p>
+            <h1>Captura de información</h1>
+            <p>Utiliza los formularios para registrar usuarios y validar los datos de alumnos.</p>
+          </div>
+          <div class="status-pill">Sesión activa</div>
+        </section>
+
+        <section id="capturaSection" class="content-grid">
+          <article class="panel-card">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Usuarios / Captura</p>
+                <h2>Captura de usuario</h2>
+              </div>
+            </div>
+
+            <div id="usuarioMessage" class="form-message" role="alert" aria-live="polite"></div>
+
+            <form id="usuarioForm" novalidate>
+              <div class="mb-3">
+                <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+                <input type="text" class="form-control" id="nombreUsuario" placeholder="Nombre completo" required>
+                <div class="field-error" id="nombreUsuarioError"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="correoUsuario" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="correoUsuario" placeholder="usuario@correo.com" required>
+                <div class="field-error" id="correoUsuarioError"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="passwordUsuario" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="passwordUsuario" placeholder="Contraseña segura" required>
+                <div class="field-error" id="passwordUsuarioError"></div>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Guardar usuario</button>
+            </form>
+          </article>
+
+          <article class="panel-card">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Alumnos</p>
+                <h2>Formulario de alumno</h2>
+              </div>
+            </div>
+
+            <div id="alumnoMessage" class="form-message" role="alert" aria-live="polite"></div>
+
+            <form id="alumnoForm" novalidate>
+              <div class="mb-3">
+                <label for="nombreAlumno" class="form-label">Nombre del alumno</label>
+                <input type="text" class="form-control" id="nombreAlumno" placeholder="Nombre completo" required>
+                <div class="field-error" id="nombreAlumnoError"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="numeroControl" class="form-label">Número de control</label>
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="6"
+                  class="form-control"
+                  id="numeroControl"
+                  placeholder="6 dígitos"
+                  required
+                >
+                <div class="field-error" id="numeroControlError"></div>
+                <small class="form-hint">Debe contener exactamente 6 dígitos numéricos.</small>
+              </div>
+
+              <div class="mb-3">
+                <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                <input type="date" class="form-control" id="fechaNacimiento" required>
+                <div class="field-error" id="fechaNacimientoError"></div>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Validar alumno</button>
+            </form>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal propio: muestra la mayoría de edad -->
+  <div id="edadModal" class="modal-backdrop-custom" hidden>
+    <section class="edad-modal" role="dialog" aria-modal="true" aria-labelledby="edadModalTitle">
+      <button id="closeModalButton" type="button" class="modal-close" aria-label="Cerrar modal">×</button>
+      <div id="modalIcon" class="modal-icon">✓</div>
+      <p class="eyebrow">Resultado</p>
+      <h2 id="edadModalTitle">Validación de edad</h2>
+      <p id="edadModalMessage"></p>
+      <button id="modalAceptarButton" type="button" class="btn btn-primary">Aceptar</button>
+    </section>
+  </div>
+
+  <script src="js/utileria.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
