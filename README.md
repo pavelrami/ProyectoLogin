@@ -6,9 +6,8 @@
 
 **Nombre del proyecto:** Sistema Escolar — Login y panel administrativo  
 **Materia:** Desarrollo Web  
-**Integrante:** [Escribe aquí tu nombre completo]  
-**Modalidad:** Trabajo individual (confirmar con el docente, ya que la consigna original solicita 2 integrantes)  
-**Fecha:** [Fecha de entrega]
+**Integrante:** León Ramírez Carlos Pavel
+
 
 ---
 
@@ -190,35 +189,7 @@ El botón **Salir del sistema** elimina el dato guardado en `sessionStorage` y r
 8. Esperar a que GitHub muestre la URL pública.
 9. Para que el enlace principal abra directamente el login, puede renombrarse `login.html` a `index.html` únicamente si también se ajusta la pantalla interna; para esta actividad es preferible conservar las dos pantallas solicitadas y compartir directamente la URL que termina en `/login.html`.
 
-### Enlaces de entrega
 
-- **Repositorio:** [Pega aquí la URL del repositorio]
-- **GitHub Pages:** [Pega aquí la URL pública que termina en `/login.html`]
-
----
-
-## Historial de commits sugerido
-
-Los commits deben hacerse conforme se construye el proyecto, por ejemplo:
-
-```text
-chore: crear estructura inicial del proyecto
-feat: crear pantalla de login
-feat: agregar validaciones de correo y contraseña
-feat: guardar usuario y redirigir al sistema
-feat: crear sidebar y submenu de usuarios
-feat: crear navbar y mostrar usuario de la sesion
-feat: agregar formulario de captura de usuario
-feat: validar numero de control del alumno
-feat: agregar calculo y modal de edad
-feat: implementar cierre de sesion
-style: mejorar diseño responsive
-README: documentar flujo y capturas del proyecto
-```
-
-> La consigna original solicita dos integrantes con una participación aproximada 50/50. Si el proyecto se realiza individualmente, debe confirmarse con el docente cómo se evaluará ese apartado. No es recomendable falsificar commits de otra persona.
-
----
 
 ## Resultado esperado
 
